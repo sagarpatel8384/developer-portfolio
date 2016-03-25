@@ -1,22 +1,18 @@
 <%= form_for @user do |f| %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'First & Last Name' %>
   </div>
 
   <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: 'Email' %>
   </div>
 
   <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: 'Password' %>
   </div>
 
   <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
   </div>
 
   <div>
@@ -25,16 +21,14 @@
   </div>
 
   <div>
-    <%= f.label :github_url, 'GitHub URL' %>
-    <%= f.text_field :github_url, placeholder: 'https://github.com/sagarpatel8384' %>
+    <%= f.text_field :github_url, placeholder: 'GitHub Profile: https://github.com/username' %>
   </div>
 
   <div>
-    <%= f.label :linked_in_url, 'LinkedIn URL' %>
-    <%= f.text_field :linked_in_url, placeholder: 'https://www.linkedin.com/in/patelsagar' %>
+    <%= f.text_field :linked_in_url, placeholder: 'LinkedIn Profile: www.linkedin.com/in/username' %>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit 'Sign Up' %>
   </div>
 <% end %>
