@@ -6,10 +6,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to :show
+      flash[:success] = 'You\'ve successfully registered.'
+      redirect_to @user
     else
+      flash.now[:error] = 'Hmmm. Looks like something went wrong.'
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
