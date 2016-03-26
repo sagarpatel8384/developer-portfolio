@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :require_login, except: [:show]
+
   def new
     @project = Project.new
     @project.categories.build
@@ -8,7 +10,6 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       flash.now[:success] = 'You\'ve successfully created a project.'
-      binding.pry
       redirect_to root_path
     else
       flash.now[:error] = 'Hmmm. Looks like something went wrong.'
@@ -20,7 +21,7 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(
-      :title, :repo_url, :host_url, categories: [:name], tag_ids: []
+      :title, :repo_url, :host_url, categories_attributes: [:name], tag_ids: []
     )
   end
 end

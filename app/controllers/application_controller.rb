@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?, :already_logged_in
+  helper_method :current_user, :logged_in?, :already_logged_in, :require_login
 
   def already_logged_in
     redirect_to root_path if logged_in?

@@ -1,10 +1,8 @@
 // User Sign Up Form
 $(document).ready(function(){
-  $('#user_github_url').hide();
-  $('#user_linked_in_url').hide();
-
-  $('#user_status').on('select', function() {
-    $('#user_github_url').toggle();
-    $('#user_linked_in_url').toggle();
-  });
+  // Dynamically update profile URL on username input
+  $('#user_username').on('keyup', function() {
+    var username = $('#user_username').val();
+    $('#username-url > span').text(username);
+  })
 })

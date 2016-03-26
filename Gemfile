@@ -19,6 +19,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'annotate'
+  gem 'database_cleaner'
 end
 
 group :production do
