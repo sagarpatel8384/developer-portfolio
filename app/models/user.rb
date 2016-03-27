@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   }
   validates :password, length: 6..20
   validates :email, :username, uniqueness: true
+
+  def user_projects
+    Project.joins(:users).where('users.id == ?', self.id)
+  end
 end

@@ -7,4 +7,5 @@ class Project < ActiveRecord::Base
   has_many :categories, through: :project_categories
   has_many :comments
   accepts_nested_attributes_for :categories
+  validates :title, :repo_url, presence: true
 end

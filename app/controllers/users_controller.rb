@@ -11,12 +11,15 @@ class UsersController < ApplicationController
       @user.create_profile
       session[:user_id] = @user.id
       flash[:success] = 'You\'ve successfully registered.'
-      binding.pry
       redirect_to edit_profile_path(@user.profile)
     else
       flash.now[:error] = 'Hmmm. Looks like something went wrong.'
       render :new
     end
+  end
+
+  def show
+    @projects = current_user.user_projects
   end
 
   private

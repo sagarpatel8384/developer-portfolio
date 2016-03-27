@@ -1,0 +1,27 @@
+<%= form_for [current_user, project] do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: 'Project Title' %>
+  </div>
+
+  <div>
+    <%= f.text_field :repo_url, placeholder: 'Code Repo URL' %>
+  </div>
+
+  <div>
+    <%= f.text_field :host_url, placeholder: 'URL' %>
+  </div>
+
+  <div>
+    <%= f.fields_for :categories do |category_form| %>
+      <%= category_form.text_field :name, placeholder: 'Project Category' %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
